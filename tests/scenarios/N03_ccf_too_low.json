@@ -1,0 +1,9 @@
+{
+  "_test": { "title": "CCF 40 Punkte bei Kategorie 3 → Fehler", "kind": "negative",
+    "expect": { "complete": false, "errors": ["CCF score 40"] } },
+  "project": { "name": "N03" },
+  "safetyFunctions": [ { "name": "SF", "plr": "d", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [ { "name": "S", "category": "3", "categoryRequirementsMet": true, "ccfMeasures": ["separation", "emc"],
+      "channels": { "ch1": [ { "name": "A", "technology": "electronic", "mttfd": 50, "dc": 0.9 } ],
+                    "ch2": [ { "name": "B", "technology": "electronic", "mttfd": 50, "dc": 0.9 } ] } } ] } ]
+}

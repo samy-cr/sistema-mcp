@@ -1,0 +1,6 @@
+{
+  "_test": { "title": "Unvollständig: alles Sicherheitsrelevante fehlt", "kind": "negative",
+    "expect": { "complete": false, "questions": ["plr", "reaction", "safeState", "category", "channels.ch1"] } },
+  "project": { "name": "N01" },
+  "safetyFunctions": [ { "name": "Irgendwas", "trigger": "t", "subsystems": [ { "name": "Sensor" } ] } ]
+}

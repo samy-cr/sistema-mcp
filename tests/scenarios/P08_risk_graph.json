@@ -1,0 +1,10 @@
+{
+  "_test": { "title": "PLr aus Risikograph S2 F2 P2 = e", "kind": "positive",
+    "expect": { "complete": true, "plr": { "SF-1": "e" }, "estimatePl": { "SF-1": "e" } } },
+  "project": { "name": "P08 Risikograph" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Quetschstelle Hubtisch",
+    "riskGraph": { "severity": "S2", "frequency": "F2", "possibility": "P2" },
+    "trigger": "Schaltleiste betätigt", "reaction": "Hubtisch stoppt", "safeState": "Hubtisch steht",
+    "subsystems": [ { "name": "Gesamtsystem", "direct": { "pl": "e", "pfh": 4e-8, "category": "4" } } ] } ]
+}

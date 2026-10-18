@@ -1,0 +1,20 @@
+bin/
+obj/
+*.user
+.vs/
+/publish/
+
+# local working data - never publish projects, IFA examples or manufacturer libraries
+# (anchored to the repository root: Windows matches case-insensitively, tests/.../vdma must stay included)
+/beispielprojekt/
+/testdaten/
+/logs/
+/tools/
+/testlauf/
+/praxistest/
+/VDMA/
+*.ssm
+*.~ssm
+*.ssm_backup
+*.slb
+*.fdb

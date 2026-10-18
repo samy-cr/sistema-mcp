@@ -1,0 +1,10 @@
+{
+  "_test": { "title": "Kategorie B, einkanalig, MTTFd direkt", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "b" }, "sistemaPlMin": { "SF-1": "b" } } },
+  "project": { "name": "P01 Kategorie B" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Stillsetzen Lüfter", "plr": "b",
+    "trigger": "Taster Stopp", "reaction": "Relais K1 schaltet Lüfter ab", "safeState": "Lüfter steht",
+    "subsystems": [ { "name": "Relais K1", "category": "B", "categoryRequirementsMet": true, "missionTimeYears": 20,
+      "channels": { "ch1": [ { "name": "Relais K1", "technology": "electromechanical", "mttfd": 20 } ] } } ] } ]
+}

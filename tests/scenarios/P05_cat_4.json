@@ -1,0 +1,13 @@
+{
+  "_test": { "title": "Kategorie 4, DC hoch, MTTFd über 100 Jahre (Kappung 2500)", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "e" }, "sistemaPlMin": { "SF-1": "e" } } },
+  "project": { "name": "P05 Kategorie 4" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Presse Zweihand", "plr": "e",
+    "trigger": "Zweihandtaster losgelassen", "reaction": "Pressenventil schließt", "safeState": "Stößel steht",
+    "subsystems": [ { "name": "Logik redundant", "category": "4", "categoryRequirementsMet": true,
+      "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+      "channels": {
+        "ch1": [ { "name": "µC 1", "technology": "electronic", "mttfd": 300, "dc": 0.99, "dcMeasure": "logic-cpu-coded" } ],
+        "ch2": [ { "name": "µC 2", "technology": "electronic", "mttfd": 300, "dc": 0.99, "dcMeasure": "logic-cpu-coded" } ] } } ] } ]
+}

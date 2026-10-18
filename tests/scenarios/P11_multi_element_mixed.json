@@ -1,0 +1,19 @@
+{
+  "_test": { "title": "Mehrere Elemente je Kanal, Pneumatik/Hydraulik/Mechanik, Gebrauchsdauer 10 Jahre", "kind": "positive",
+    "expect": { "complete": true, "sistemaPlMin": { "SF-1": "d" } } },
+  "project": { "name": "P11 Gemischte Technik" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Sicheres Absenken Hubachse", "plr": "d",
+    "trigger": "Schutztür offen", "reaction": "Hydraulik und Pneumatik drucklos, Bremse fällt ein", "safeState": "Achse gehalten",
+    "subsystems": [ { "name": "Fluidik", "category": "3", "categoryRequirementsMet": true, "missionTimeYears": 10,
+      "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+      "operatingProfile": { "daysPerYear": 250, "hoursPerDay": 16, "operationsPerHour": 10 },
+      "channels": {
+        "ch1": [
+          { "name": "Wegeventil Y1", "technology": "pneumatic", "b10d": 20000000, "dcMeasure": "out-indirect", "dc": 0.99, "dcJustification": "Druckschalter B5" },
+          { "name": "Zylinder mit Klemmung", "technology": "mechanical", "mttfd": 150, "dc": 0.9, "dcJustification": "Wegmessung" } ],
+        "ch2": [
+          { "name": "Hydraulikventil Y2", "technology": "hydraulic", "mttfd": 150, "dcMeasure": "out-direct" },
+          { "name": "Rückschlagventil", "technology": "hydraulic", "mttfd": 150, "dc": 0.6, "dcJustification": "Druckabfallprüfung" },
+          { "name": "Bremse", "technology": "mechanical", "b10d": 5000000, "dc": 0.9, "dcJustification": "Bremsentest zyklisch" } ] } } ] } ]
+}

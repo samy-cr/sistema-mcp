@@ -1,0 +1,11 @@
+{
+  "_test": { "title": "Ungültige Werte: PL 'f', Kategorie 5, Technologie 'magisch', DC 150 %, MTTFd negativ, unbekannte Maßnahmen", "kind": "negative",
+    "expect": { "complete": false, "errors": ["not a PL", "Unknown category", "Unknown technology", "DC must be", "MTTFd must be", "Unknown CCF measure", "Unknown DC measure"] } },
+  "project": { "name": "N04" },
+  "safetyFunctions": [ { "name": "SF", "plr": "f", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [
+      { "name": "S1", "category": "5", "channels": { "ch1": [ { "name": "A", "technology": "electronic", "mttfd": 50 } ] } },
+      { "name": "S2", "category": "3", "categoryRequirementsMet": true, "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "zauberei"],
+        "channels": { "ch1": [ { "name": "A", "technology": "magisch", "mttfd": -5, "dc": 150 } ],
+                      "ch2": [ { "name": "B", "technology": "electronic", "mttfd": 50, "dcMeasure": "gibtsnicht" } ] } } ] } ]
+}

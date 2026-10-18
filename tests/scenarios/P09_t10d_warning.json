@@ -1,0 +1,14 @@
+{
+  "_test": { "title": "Hohe Schalthäufigkeit: T10D < Gebrauchsdauer (Warnung, trotzdem erzeugt)", "kind": "positive",
+    "expect": { "complete": true, "warnings": ["T10D"] } },
+  "project": { "name": "P09 T10D" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Taktbetrieb Schütze", "plr": "c",
+    "trigger": "Zyklus Ende", "reaction": "Schütze fallen ab", "safeState": "Motor stromlos",
+    "subsystems": [ { "name": "Schütze", "category": "3", "categoryRequirementsMet": true,
+      "ccfMeasures": ["separation", "overvoltage", "emc", "environment", "well-tried", "fmea"],
+      "operatingProfile": { "daysPerYear": 300, "hoursPerDay": 24, "cycleTimeSeconds": 30 },
+      "channels": {
+        "ch1": [ { "name": "Q1", "technology": "electromechanical", "b10d": 1300000, "dcMeasure": "out-direct" } ],
+        "ch2": [ { "name": "Q2", "technology": "electromechanical", "b10d": 1300000, "dcMeasure": "out-direct" } ] } } ] } ]
+}

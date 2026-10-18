@@ -1,0 +1,14 @@
+{
+  "_test": { "title": "Bibliothek: unbekannte ID, fehlender Anwendungsfall, Element als Subsystem, Subsystem als Element", "kind": "negative", "requires": "turck",
+    "expect": { "complete": false, "errors": ["not found", "is an element", "complete subsystem"], "questions": ["library.useCase"] } },
+  "project": { "name": "N06" },
+  "safetyFunctions": [ { "name": "SF", "plr": "d", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [
+      { "name": "Unbekannt", "library": { "componentId": "gibts/nicht" } },
+      { "name": "Ohne Anwendungsfall", "library": { "componentId": "turck/TBPN-L1-FDIO1-2IOL" } },
+      { "name": "Element als Subsystem", "library": { "componentId": "turck/TBSB-L4-CS09", "useCase": 1 } },
+      { "name": "Subsystem als Element", "category": "3", "categoryRequirementsMet": true,
+        "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+        "channels": { "ch1": [ { "name": "X", "technology": "electronic", "library": { "componentId": "turck/TBPN-L1-FDIO1-2IOL", "useCase": 0 }, "dc": 0.9 } ],
+                      "ch2": [ { "name": "Y", "technology": "electronic", "mttfd": 50, "dc": 0.9 } ] } } ] } ]
+}

@@ -1,0 +1,23 @@
+{
+  // Deliberately incomplete: shows the questions the validator returns.
+  "project": { "name": "Palletiser PL-2" },
+  "safetyFunctions": [
+    {
+      "id": "SF-01",
+      "name": "Guard door interlocking",
+      "riskGraph": { "severity": "S2", "frequency": "F1" },
+      "trigger": "Guard door opened",
+      "subsystems": [
+        {
+          "name": "Door switches B1/B2",
+          "category": "3",
+          "channels": {
+            "ch1": [ { "name": "B1", "technology": "electromechanical", "b10d": 20000000 } ],
+            "ch2": [ { "name": "B2", "b10d": 1000000, "dcMeasure": "in-cross-static" } ]
+          }
+        },
+        { "name": "Safety I/O", "library": { "componentId": "turck/TBPN-L1-FDIO1-2IOL" } }
+      ]
+    }
+  ]
+}

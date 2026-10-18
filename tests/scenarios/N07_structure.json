@@ -1,0 +1,11 @@
+{
+  "_test": { "title": "Struktur: Kat. 3 ohne Kanal 2, Kat. 2 ohne Testkanal, DC-Bereich ohne Wert, B10D ohne Schaltspiele", "kind": "negative",
+    "expect": { "complete": false, "questions": ["channels.ch2", "channels.test", "dc", "nop"] } },
+  "project": { "name": "N07" },
+  "safetyFunctions": [ { "name": "SF", "plr": "d", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [
+      { "name": "Kat3 einkanalig", "category": "3", "categoryRequirementsMet": true, "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+        "channels": { "ch1": [ { "name": "A", "technology": "electronic", "mttfd": 50, "dcMeasure": "in-cross-static" } ] } },
+      { "name": "Kat2 ohne Test", "category": "2", "categoryRequirementsMet": true, "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+        "channels": { "ch1": [ { "name": "B", "technology": "electromechanical", "b10d": 1000000, "dc": 0.9 } ] } } ] } ]
+}

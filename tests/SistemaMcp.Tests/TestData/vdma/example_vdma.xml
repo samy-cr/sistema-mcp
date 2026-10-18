@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictitious library for unit tests – not real manufacturer data. -->
+<VDMA66413 Version="1.0.0">
+  <Manufacturer Version="2.1">
+    <Name>Example Safety Library</Name>
+    <DBFileName>example_vdma.xml</DBFileName>
+    <Information Key="KeyInfo"/>
+    <URL>www.example.com</URL>
+    <Devices>
+      <Device>
+        <Identifier>XR-100</Identifier>
+        <Group Key="GrRelay"/>
+        <Name Key="NmRelay"/>
+        <PartNumber>4711</PartNumber>
+        <Revision>1</Revision>
+        <Description Key="DsRelay"/>
+        <Archive>false</Archive>
+        <UseCases>
+          <UseCase>
+            <Constraints><Hierarchy1 Key="Logic"/><Hierarchy2 Key="#NotApplicable"/></Constraints>
+            <Function><InputFunction>true</InputFunction><LogicFunction>true</LogicFunction><OutputFunction>true</OutputFunction></Function>
+            <InfoConfig>CAT_4</InfoConfig>
+            <Parameter><DeviceType1><PL>PL_e</PL><SILCL>SIL_3</SILCL><PFH_d>2,5E-09</PFH_d><TM_T1>20</TM_T1></DeviceType1></Parameter>
+          </UseCase>
+          <UseCase>
+            <Constraints><Hierarchy1 Key="Output"/><Hierarchy2 Key="CtNominal"/></Constraints>
+            <Function><InputFunction>false</InputFunction><LogicFunction>false</LogicFunction><OutputFunction>true</OutputFunction></Function>
+            <InfoConfig>CAT_3</InfoConfig>
+            <Parameter><DeviceType3><B10d>500000</B10d><TM_T1>20</TM_T1></DeviceType3></Parameter>
+          </UseCase>
+        </UseCases>
+      </Device>
+      <Device>
+        <Identifier>XS-7</Identifier>
+        <Name Key="NmSensor"/>
+        <PartNumber>0815</PartNumber>
+        <Archive>true</Archive>
+        <UseCases>
+          <UseCase>
+            <Constraints><Hierarchy1 Key="Input"/></Constraints>
+            <Function><InputFunction>true</InputFunction><LogicFunction>false</LogicFunction><OutputFunction>false</OutputFunction></Function>
+            <InfoConfig>CAT_na</InfoConfig>
+            <Parameter><DeviceType2><MTTF>50</MTTF><RDF>50</RDF><TM_T1>20</TM_T1></DeviceType2></Parameter>
+          </UseCase>
+        </UseCases>
+      </Device>
+    </Devices>
+    <Language>
+      <LanguageKeys><LanguageDef LanguageKey="en"/><LanguageDef LanguageKey="de"/></LanguageKeys>
+      <Informations><Information Key="KeyInfo"><Text LanguageKey="en">Example GmbH, Street 1, Town</Text></Information></Informations>
+      <Groups><Group Key="GrRelay"><Text LanguageKey="en">Safety relay</Text><Text LanguageKey="de">Sicherheitsrelais</Text></Group></Groups>
+      <Names>
+        <Name Key="NmRelay"><Text LanguageKey="en">Safety relay XR</Text><Text LanguageKey="de">Sicherheitsrelais XR</Text></Name>
+        <Name Key="NmSensor"><Text LanguageKey="en">Sensor XS</Text></Name>
+      </Names>
+      <Descriptions><Description Key="DsRelay"><Text LanguageKey="en">Two-channel relay</Text></Description></Descriptions>
+      <Constraints><Constraint Key="CtNominal"><Text LanguageKey="en">nominal load</Text></Constraint></Constraints>
+    </Language>
+  </Manufacturer>
+</VDMA66413>

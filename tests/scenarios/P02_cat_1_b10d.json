@@ -1,0 +1,13 @@
+{
+  "_test": { "title": "Kategorie 1, zwei Elemente in Reihe, B10D mit Betriebsprofil", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "c" }, "sistemaPlMin": { "SF-1": "c" } } },
+  "project": { "name": "P02 Kategorie 1" },
+  "defaults": { "missionTimeYears": 20, "operatingProfile": { "daysPerYear": 220, "hoursPerDay": 8, "cycleTimeSeconds": 3600 } },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Wartungsklappe", "plr": "c",
+    "trigger": "Klappe geöffnet", "reaction": "Schütz Q3 fällt ab", "safeState": "Förderband steht",
+    "subsystems": [ { "name": "B10 + Q3", "category": "1", "categoryRequirementsMet": true,
+      "channels": { "ch1": [
+        { "name": "Positionsschalter B10", "technology": "electromechanical", "b10d": 20000000 },
+        { "name": "Schütz Q3", "technology": "electromechanical", "b10d": 1300000 } ] } } ] } ]
+}

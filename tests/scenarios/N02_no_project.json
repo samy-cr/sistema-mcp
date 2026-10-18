@@ -1,0 +1,4 @@
+{
+  "_test": { "title": "Leere Spezifikation: Projektname und Sicherheitsfunktionen erfragen", "kind": "negative",
+    "expect": { "complete": false, "questions": ["name", "safetyFunctions"] } }
+}

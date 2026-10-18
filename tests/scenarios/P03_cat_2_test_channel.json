@@ -1,0 +1,13 @@
+{
+  "_test": { "title": "Kategorie 2 mit Testkanal, DC 90 %", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "d" } } },
+  "project": { "name": "P03 Kategorie 2" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Lichtschranke Zugang", "plr": "c",
+    "trigger": "Lichtschranke unterbrochen", "reaction": "Antrieb wird stillgesetzt", "safeState": "Antrieb steht",
+    "subsystems": [ { "name": "Lichtschranke mit Testung", "category": "2", "categoryRequirementsMet": true,
+      "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+      "channels": {
+        "ch1": [ { "name": "Lichtschranke F1", "technology": "electronic", "mttfd": 60, "dcMeasure": "in-cyclic-test" } ],
+        "test": [ { "name": "Testeinrichtung", "technology": "electronic", "mttfd": 80 } ] } } ] } ]
+}

@@ -1,0 +1,13 @@
+{
+  "_test": { "title": "Kategorie 3, unsymmetrische Kanäle, DC mittel", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "d" }, "sistemaPlMin": { "SF-1": "d" } } },
+  "project": { "name": "P04 Kategorie 3" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Schutztür", "plr": "d",
+    "trigger": "Tür geöffnet", "reaction": "STO", "safeState": "Antrieb momentfrei",
+    "subsystems": [ { "name": "Türschalter", "category": "3", "categoryRequirementsMet": true,
+      "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+      "channels": {
+        "ch1": [ { "name": "B1", "technology": "electronic", "mttfd": 100, "dc": 0.9, "dcJustification": "Kreuzvergleich in F-CPU" } ],
+        "ch2": [ { "name": "B2", "technology": "electronic", "mttfd": 25, "dc": 0.9, "dcJustification": "Kreuzvergleich in F-CPU" } ] } } ] } ]
+}

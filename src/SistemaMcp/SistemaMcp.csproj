@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>SistemaMcp</AssemblyName>
+    <RootNamespace>SistemaMcp</RootNamespace>
+    <Version>0.1.0</Version>
+    <Description>MCP server for IFA SISTEMA (ISO 13849-1): read, generate and check .ssm projects, use VDMA 66413 and SISTEMA component libraries.</Description>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <!-- SISTEMA ships a 32-bit embedded Firebird engine for .slb libraries, so the server runs as x86.
+       Self-contained: users need no .NET runtime. Unit tests build it as AnyCPU (SistemaMcpAnyCpu=true). -->
+  <PropertyGroup Condition="'$(SistemaMcpAnyCpu)' != 'true'">
+    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="10.3.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.13" />
+    <PackageReference Include="ModelContextProtocol" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\data\vdma-manufacturers.json" LogicalName="vdma-manufacturers.json" />
+    <EmbeddedResource Include="..\..\docs\spec-format.md" LogicalName="spec-format.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="SistemaMcp.Tests" />
+  </ItemGroup>
+
+</Project>

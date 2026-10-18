@@ -1,0 +1,15 @@
+{
+  "_test": { "title": "Sonderzeichen, Umlaute, Zeilenumbrüche, lange Texte, Sonderzeichen im Namen", "kind": "positive",
+    "expect": { "complete": true } },
+  "project": {
+    "name": "P10 Größe & Übermaß – \"Sonderzeichen\" <test> ÄÖÜ äöü ß € µ ±",
+    "machine": "Säge Nr. 7 / Bereich \"Süd\"",
+    "author": "Jürgen Müller-Weiß",
+    "documentation": "Zeile 1\nZeile 2 mit Tab\tund Ende\r\nZeile 3: 50 % Last, 2 × 10³ Zyklen, Ø 12 mm"
+  },
+  "safetyFunctions": [ {
+    "id": "SF-ÄÖÜ", "name": "Not-Halt „Säge“ – Bereich <A> & <B>", "plr": "d",
+    "trigger": "Betätigung Not-Halt S1 oder S2\n(beide Bedienstellen)", "reaction": "Sägeblatt bremst < 10 s", "safeState": "Sägeblatt steht",
+    "documentation": "Langer Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "subsystems": [ { "name": "Bremsmodul „B1“", "direct": { "pl": "d", "pfh": 3e-7, "category": "3", "manufacturer": "Müller & Söhne GmbH", "partNumber": "ÄB-12/3" } } ] } ]
+}

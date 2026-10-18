@@ -1,0 +1,70 @@
+{
+  "project": {
+    "name": "Verpackungsmaschine (Beispiel)",
+    "author": "Example",
+    "documentation": "Sicherheitsfunktionen abgeleitet aus der Stückliste: 7x Schmersal AZM201Z, 5x Schmersal BDF100 (Not-Halt), 1x Schmersal RSS260, 2x Schmersal SFB-PN-IRT (PROFIsafe), Siemens F-CPU 1517F-3 PN/DP (6ES7517-3FP00-0AB0), SEW MOVIDRIVE modular: große Achse MDA90A-0640 (SS1), kleine Achse MDD90A-0040 (STO), MOVISAFE CSS21A, Ansteuerung über PROFIsafe. PLr d laut Risikobeurteilung. Je eine repräsentative SF für gleich aufgebaute Türen bzw. Not-Halt-Taster.\nKennwerte Schmersal: VDMA-66413-Bibliothek components-lib V9."
+  },
+  "defaults": { "missionTimeYears": 20 },
+  "safetyFunctions": [
+    {
+      "id": "SF-01",
+      "name": "Not-Halt",
+      "plr": "d",
+      "plrJustification": "Risikobeurteilung",
+      "trigger": "Betätigen eines Not-Halt-Tasters BDF100 (5 Stück, repräsentativ)",
+      "reaction": "F-CPU löst über PROFIsafe/CSS21A aus: kleine Achse STO, große Achse SS1",
+      "safeState": "Alle Achsen stillgesetzt und momentfrei",
+      "subsystems": [
+        { "name": "Eingabe: Not-Halt BDF100", "role": "input", "category": "3", "categoryRequirementsMet": true,
+          "categoryJustification": "Zwei Öffner, 2-kanalige Auswertung mit Querschlusserkennung in der Safety-Fieldbox SFB.",
+          "ccfMeasures": ["separation", "overvoltage", "well-tried", "emc", "environment"],
+          "operatingProfile": { "daysPerYear": 365, "hoursPerDay": 24, "operationsPerHour": 1 },
+          "channels": {
+            "ch1": [ { "name": "BDF100 Öffner 1", "technology": "electromechanical", "library": { "componentId": "schmersal/BDF 100", "useCase": 0 },
+                       "dcMeasure": "in-cross-dynamic", "dcJustification": "2-kanalige Auswertung mit Testpulsen in der SFB (konservativ 90 %)", "partNumber": "BDF100-NH-G-ST" } ],
+            "ch2": [ { "name": "BDF100 Öffner 2", "technology": "electromechanical", "library": { "componentId": "schmersal/BDF 100", "useCase": 0 },
+                       "dcMeasure": "in-cross-dynamic", "dcJustification": "2-kanalige Auswertung mit Testpulsen in der SFB (konservativ 90 %)", "partNumber": "BDF100-NH-G-ST" } ]
+          } },
+        { "name": "Eingabe: Safety-Fieldbox SFB (2-kanalige Eingänge)", "role": "input", "library": { "componentId": "schmersal/SFB-PN-IRT-8M12-IOP-V2", "useCase": 0 } },
+        { "name": "Logik: F-CPU 1517F-3 PN/DP", "role": "logic", "library": { "componentId": "siemens/SIMATIC S7 F-CPU | CPU 1517F-3PN/DP | 6ES7517-3FP00-0AB0", "useCase": 0 } },
+        { "name": "Ausgabe: SEW MOVISAFE CSS21A (mit Geber, SS1 groß / STO klein über PROFIsafe)", "role": "output", "library": { "componentId": "sew/CSS21A V4.0x", "useCase": 2 } },
+        { "name": "Ausgabe: große Achse MDA90A-0640 (STO, SS1 über CSS21A)", "role": "output", "library": { "componentId": "sew/MDA", "useCase": 0 } },
+        { "name": "Ausgabe: kleine Achse MDD90A-0040 (STO)", "role": "output", "library": { "componentId": "sew/MDD90A", "useCase": 0 } }
+      ]
+    },
+    {
+      "id": "SF-02",
+      "name": "Schutztür – Stillsetzen bei geöffneter Tür",
+      "plr": "d",
+      "plrJustification": "Risikobeurteilung",
+      "trigger": "Öffnen einer Schutztür (AZM201Z, 7 Stück, repräsentativ)",
+      "reaction": "F-CPU löst über PROFIsafe/CSS21A aus: kleine Achse STO, große Achse SS1",
+      "safeState": "Alle Achsen stillgesetzt und momentfrei",
+      "subsystems": [
+        { "name": "Eingabe: AZM201Z Türüberwachung", "role": "input", "library": { "componentId": "schmersal/AZM 201", "useCase": 0 } },
+        { "name": "Eingabe: Safety-Fieldbox SFB (2-kanalige Eingänge)", "role": "input", "library": { "componentId": "schmersal/SFB-PN-IRT-8M12-IOP-V2", "useCase": 0 } },
+        { "name": "Logik: F-CPU 1517F-3 PN/DP", "role": "logic", "library": { "componentId": "siemens/SIMATIC S7 F-CPU | CPU 1517F-3PN/DP | 6ES7517-3FP00-0AB0", "useCase": 0 } },
+        { "name": "Ausgabe: SEW MOVISAFE CSS21A (mit Geber, SS1 groß / STO klein über PROFIsafe)", "role": "output", "library": { "componentId": "sew/CSS21A V4.0x", "useCase": 2 } },
+        { "name": "Ausgabe: große Achse MDA90A-0640 (STO, SS1 über CSS21A)", "role": "output", "library": { "componentId": "sew/MDA", "useCase": 0 } },
+        { "name": "Ausgabe: kleine Achse MDD90A-0040 (STO)", "role": "output", "library": { "componentId": "sew/MDD90A", "useCase": 0 } }
+      ]
+    },
+    {
+      "id": "SF-03",
+      "name": "Schutztür/Klappe RSS260 – Stillsetzen bei Öffnen",
+      "plr": "d",
+      "plrJustification": "Risikobeurteilung",
+      "trigger": "Öffnen der mit RSS260 überwachten Tür/Klappe",
+      "reaction": "F-CPU löst über PROFIsafe/CSS21A aus: kleine Achse STO, große Achse SS1",
+      "safeState": "Alle Achsen stillgesetzt und momentfrei",
+      "subsystems": [
+        { "name": "Eingabe: Sicherheitssensor RSS260", "role": "input", "library": { "componentId": "schmersal/RSS 260_Fx_Q", "useCase": 0 } },
+        { "name": "Eingabe: Safety-Fieldbox SFB (2-kanalige Eingänge)", "role": "input", "library": { "componentId": "schmersal/SFB-PN-IRT-8M12-IOP-V2", "useCase": 0 } },
+        { "name": "Logik: F-CPU 1517F-3 PN/DP", "role": "logic", "library": { "componentId": "siemens/SIMATIC S7 F-CPU | CPU 1517F-3PN/DP | 6ES7517-3FP00-0AB0", "useCase": 0 } },
+        { "name": "Ausgabe: SEW MOVISAFE CSS21A (mit Geber, SS1 groß / STO klein über PROFIsafe)", "role": "output", "library": { "componentId": "sew/CSS21A V4.0x", "useCase": 2 } },
+        { "name": "Ausgabe: große Achse MDA90A-0640 (STO, SS1 über CSS21A)", "role": "output", "library": { "componentId": "sew/MDA", "useCase": 0 } },
+        { "name": "Ausgabe: kleine Achse MDD90A-0040 (STO)", "role": "output", "library": { "componentId": "sew/MDD90A", "useCase": 0 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_test": { "title": "Nur Subsysteme mit PL/PFH aus Datenblatt (PFH-Summe)", "kind": "positive",
+    "expect": { "complete": true, "estimatePl": { "SF-1": "d" }, "sistemaPlMin": { "SF-1": "d" } } },
+  "project": { "name": "P06 Datenblattwerte" },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Lichtgitter Beladung", "plr": "d",
+    "trigger": "Lichtgitter unterbrochen", "reaction": "Roboter Stopp 0", "safeState": "Roboter steht",
+    "subsystems": [
+      { "name": "Lichtgitter", "role": "input", "direct": { "pl": "e", "pfh": 1.5e-8, "category": "4", "manufacturer": "Beispiel", "source": "Datenblatt" } },
+      { "name": "F-CPU", "role": "logic", "direct": { "pl": "e", "pfh": 1e-9, "category": "4" } },
+      { "name": "Roboter-Sicherheitssteuerung", "role": "output", "direct": { "pl": "d", "pfh": 2.5e-7, "category": "3" } } ] } ]
+}

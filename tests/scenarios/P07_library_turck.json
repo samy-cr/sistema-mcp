@@ -1,0 +1,16 @@
+{
+  "_test": { "title": "Bibliothek: Turck-Subsystem (PL/PFH) und Turck-Element (B10D)", "kind": "positive", "requires": "turck",
+    "expect": { "complete": true, "sistemaPlMin": { "SF-1": "d" } } },
+  "project": { "name": "P07 Bibliothek Turck" },
+  "defaults": { "operatingProfile": { "daysPerYear": 220, "hoursPerDay": 16, "operationsPerHour": 2 } },
+  "safetyFunctions": [ {
+    "id": "SF-1", "name": "Schutztür Ventilinsel", "plr": "d",
+    "trigger": "Tür geöffnet", "reaction": "Versorgung V2 der Ventilinsel abgeschaltet", "safeState": "Ventile stromlos",
+    "subsystems": [
+      { "name": "Sicherheits-E/A", "library": { "componentId": "turck/TBPN-L1-FDIO1-2IOL", "useCase": 0 } },
+      { "name": "Schaltbox", "category": "3", "categoryRequirementsMet": true,
+        "ccfMeasures": ["separation", "overvoltage", "emc", "environment", "well-tried", "fmea"],
+        "channels": {
+          "ch1": [ { "name": "Pfad 1", "technology": "electromechanical", "library": { "componentId": "turck/TBSB-L4-CS09", "useCase": 1 }, "dcMeasure": "out-direct" } ],
+          "ch2": [ { "name": "Pfad 2", "technology": "electromechanical", "library": { "componentId": "turck/TBSB-L4-CS09", "useCase": 1 }, "dcMeasure": "out-direct" } ] } } ] } ]
+}

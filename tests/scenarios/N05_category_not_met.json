@@ -1,0 +1,8 @@
+{
+  "_test": { "title": "Kategorie-Anforderungen ausdrücklich nicht erfüllt → Fehler", "kind": "negative",
+    "expect": { "complete": false, "errors": ["category requirements not met"] } },
+  "project": { "name": "N05" },
+  "safetyFunctions": [ { "name": "SF", "plr": "c", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [ { "name": "S", "category": "1", "categoryRequirementsMet": false,
+      "channels": { "ch1": [ { "name": "A", "technology": "electromechanical", "mttfd": 50 } ] } } ] } ]
+}

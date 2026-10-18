@@ -1,0 +1,29 @@
+{
+  // Helper to learn SISTEMA's category requirement ids: open the generated file in SISTEMA, tick all
+  // category requirement boxes of each subsystem, save, then read the 'catconditions' attribute.
+  "project": { "name": "Category requirement probe" },
+  "defaults": { "missionTimeYears": 20 },
+  "safetyFunctions": [
+    {
+      "id": "P-B", "name": "Probe category B", "plr": "b", "trigger": "-", "reaction": "-", "safeState": "-",
+      "subsystems": [ { "name": "Category B", "category": "B", "categoryRequirementsMet": true,
+        "channels": { "ch1": [ { "name": "Relay", "technology": "electromechanical", "mttfd": 20 } ] } } ]
+    },
+    {
+      "id": "P-2", "name": "Probe category 2", "plr": "c", "trigger": "-", "reaction": "-", "safeState": "-",
+      "subsystems": [ { "name": "Category 2", "category": "2", "categoryRequirementsMet": true,
+        "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+        "channels": {
+          "ch1": [ { "name": "Sensor", "technology": "electronic", "mttfd": 50, "dc": 0.9 } ],
+          "test": [ { "name": "Test equipment", "technology": "electronic", "mttfd": 50 } ] } } ]
+    },
+    {
+      "id": "P-4", "name": "Probe category 4", "plr": "e", "trigger": "-", "reaction": "-", "safeState": "-",
+      "subsystems": [ { "name": "Category 4", "category": "4", "categoryRequirementsMet": true,
+        "ccfMeasures": ["separation", "diversity", "overvoltage", "emc", "environment"],
+        "channels": {
+          "ch1": [ { "name": "Channel 1", "technology": "electronic", "mttfd": 100, "dc": 0.99 } ],
+          "ch2": [ { "name": "Channel 2", "technology": "electronic", "mttfd": 100, "dc": 0.99 } ] } } ]
+    }
+  ]
+}

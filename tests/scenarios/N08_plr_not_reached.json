@@ -1,0 +1,8 @@
+{
+  "_test": { "title": "Vollständig, aber PLr e wird mit Kat. 1 nicht erreicht → Projekt wird erzeugt, Schätzung meldet nicht erreicht", "kind": "positive",
+    "expect": { "complete": true, "plrReached": { "SF-1": false } } },
+  "project": { "name": "N08 PLr nicht erreicht" },
+  "safetyFunctions": [ { "id": "SF-1", "name": "Zu schwach", "plr": "e", "trigger": "t", "reaction": "r", "safeState": "s",
+    "subsystems": [ { "name": "Kat1", "category": "1", "categoryRequirementsMet": true,
+      "channels": { "ch1": [ { "name": "A", "technology": "electromechanical", "mttfd": 80 } ] } } ] } ]
+}
