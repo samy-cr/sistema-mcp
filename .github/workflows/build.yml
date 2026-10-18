@@ -6,6 +6,9 @@ on:
     tags: [ 'v*' ]
   pull_request:
 
+permissions:
+  contents: write   # needed to create the GitHub release on version tags
+
 jobs:
   build:
     runs-on: windows-latest
